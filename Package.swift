@@ -22,14 +22,15 @@
 
 import PackageDescription
 
+// Renamed to avoid conflicts with other library using Starscream
 let package = Package(
-        name: "Starscream",
+        name: "StarscreamVolven",
         products: [
-            .library(name: "Starscream", targets: ["Starscream"])
+            .library(name: "StarscreamVolven", targets: ["StarscreamVolven"])
         ],
         dependencies: [],
         targets: [
-            .target(name: "Starscream",
+            .target(name: "StarscreamVolven",
                     path: "Sources")
         ]
 )
