@@ -114,7 +114,12 @@ public class TCPTransport: Transport {
                 switch error {
                 case .posix(let errorCode):
                     // handle timeout and network unreachable
-                    if errorCode == .ETIMEDOUT || errorCode == .ENETDOWN || errorCode == .ENETUNREACH {
+                    if errorCode == .ETIMEDOUT 
+                        || errorCode == .ENETDOWN   
+                        || errorCode == .ENETUNREACH
+                        || errorCode == .ECANCELED
+                        || errorCode == .ECONNABORTED
+                    {
                         self?.delegate?.connectionChanged(state: .failed(error))
                     } else {
                         self?.delegate?.connectionChanged(state: .waiting)
